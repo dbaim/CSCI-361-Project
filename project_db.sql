@@ -12,16 +12,17 @@ create table patients (
     home_address VARCHAR(250),
     marital_status VARCHAR(250),
     registration_date DATE,
-    FOREIGN KEY (doctorId) REFERENCES doctor (doctorId);
-    
+    FOREIGN KEY (doctorId) REFERENCES doctor (doctorId),
+    FOREIGN KEY(username) REFERENCES authentification(username)
 );
 CREATE TABLE doctor (
     dateOfBirth DATE,
-    iin BIGINT,
-    id PRIMARY KEY,
-    patientId FOREIGN KEY,
+    iin CHAR(12),
+    doctorId PRIMARY KEY,
+    FOREIGN KEY(patient_id) REFERENCES patients(patient_id),
+    FOREIGN KEY(username) REFERENCES authentification(username),
     fullName VARCHAR(255),
-    phoneNumber VARCHAR(50),
+    phoneNumber CHAR(12),
     departmentId INT,
     specializationsId INT,
     experience INT,
@@ -32,4 +33,10 @@ CREATE TABLE doctor (
     rating INT,
     address VARCHAR(50),
     email VARCHAR(250)
+);
+
+CREATE TABLE authentification (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(50),
+    userType VARCHAR(20)
 );
