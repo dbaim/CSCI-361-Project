@@ -18,7 +18,7 @@ CREATE TABLE doctor (
     dateOfBirth DATE,
     iin CHAR(12),
     doctorId PRIMARY KEY,
-    patientId FOREIGN KEY,
+    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
     fullName VARCHAR(255),
     phoneNumber CHAR(12),
     departmentId INT,
@@ -29,5 +29,11 @@ CREATE TABLE doctor (
     scheduleDetails VARCHAR(255),
     education VARCHAR(50),
     rating VARCHAR(2),
-    address VARCHAR(50),
+    address VARCHAR(50)
+);
+
+CREATE TABLE authentification (
+    username VARCHAR(50),
+    password VARCHAR(50),
+    userType VARCHAR(20)
 );
