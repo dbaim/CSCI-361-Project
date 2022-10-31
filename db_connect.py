@@ -26,12 +26,15 @@ def init_db():
     print('All tables were created successfully')
 
 
-def fill_patient():
-    with eng.connect() as conn:
-        dis = conn.execute(text("""
-        INSERT INTO patients (dob, iin, patientID, full_name, blood_group, emergency_contact_number, contact_number, email, home_address, marital_status, registration_date, doctorId, username) VALUES
-        ('2002-04-10', '023303030', '330303003', 'Aaron Paul', '3P', '87773737373', '83338383', 'dsjd@fenfj.com', 'address', 'single', '2020-02-02', 'user1');
-        """))
+def fill_db():
+	filepath = Path('mock.sql')
+
+	with engine.connect() as conn:
+		for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
+			conn.execute(text(query))
+
+	print('All rows were inserted successfully')
 
 
 init_db()
+fill_db()
