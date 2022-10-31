@@ -15,11 +15,20 @@ create table patients (
     -- primary key(ID)
 );
 CREATE TABLE doctor (
-    id SERIAL PRIMARY KEY,
-    full_name VARCHAR(50),
-    username VARCHAR(50),
-    sex CHAR(1),
+    dateOfBirth DATE,
+    iin BIGINT,
+    id PRIMARY KEY,
+    patientId FOREIGN KEY,
+    fullName VARCHAR(255),
+    phoneNumber VARCHAR(50),
+    departmentId INT,
+    specializationsId INT,
+    experience INT,
+    category VARCHAR(50),
+    price INT,
+    scheduleDetails VARCHAR(255),
+    education VARCHAR(50),
+    rating INT,
     address VARCHAR(50),
-    phoneNumber varchar(50),
     email VARCHAR(250)
 );
