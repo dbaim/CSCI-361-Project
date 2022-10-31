@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS authentification CASCADE;
+DROP TABLE IF EXISTS doctor CASCADE;
+DROP TABLE IF EXISTS patients CASCADE;
+
 CREATE TABLE authentification (
     username VARCHAR(50) UNIQUE PRIMARY KEY,
     password VARCHAR(50) NOT NULL,
