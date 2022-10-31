@@ -12,14 +12,12 @@ create table patients (
     home_address VARCHAR(250),
     marital_status VARCHAR(250),
     registration_date DATE,
-    FOREIGN KEY (doctorId) REFERENCES doctor (doctorId),
     FOREIGN KEY(username) REFERENCES authentification(username)
 );
 CREATE TABLE doctor (
     dateOfBirth DATE,
     iin CHAR(12),
     doctorId PRIMARY KEY,
-    FOREIGN KEY(patient_id) REFERENCES patients(patient_id),
     FOREIGN KEY(username) REFERENCES authentification(username),
     fullName VARCHAR(255),
     phoneNumber CHAR(12),
