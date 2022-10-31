@@ -3,7 +3,7 @@ create database project;
 create table patients (
     dob DATE,
     iin CHAR(12),
-    patientId bigserial PRIMARY KEY,
+    patientId INT PRIMARY KEY,
     full_name VARCHAR(255),
     blood_group VARCHAR(50),
     emergency_contact_number CHAR(12),
@@ -12,13 +12,16 @@ create table patients (
     home_address VARCHAR(250),
     marital_status VARCHAR(250),
     registration_date DATE,
-    FOREIGN KEY(username) REFERENCES authentification(username)
+    username VARCHAR(50),
+    doctorId INT
 );
 CREATE TABLE doctor (
     dateOfBirth DATE,
     iin CHAR(12),
-    doctorId PRIMARY KEY,
-    FOREIGN KEY(username) REFERENCES authentification(username),
+    doctorId INT PRIMARY KEY ,
+    patientID INT,
+    username VARCHAR(50),
+    
     fullName VARCHAR(255),
     phoneNumber CHAR(12),
     departmentId INT,
