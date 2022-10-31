@@ -16,19 +16,18 @@ create table patients (
 );
 CREATE TABLE doctor (
     dateOfBirth DATE,
-    iin BIGINT,
-    id PRIMARY KEY,
+    iin CHAR(12),
+    doctorId PRIMARY KEY,
     patientId FOREIGN KEY,
     fullName VARCHAR(255),
-    phoneNumber VARCHAR(50),
+    phoneNumber CHAR(12),
     departmentId INT,
-    specializationsId INT,
+    specializationsId VARCHAR(50),
     experience INT,
     category VARCHAR(50),
     price INT,
     scheduleDetails VARCHAR(255),
     education VARCHAR(50),
-    rating INT,
+    rating VARCHAR(2),
     address VARCHAR(50),
-    email VARCHAR(250)
 );
