@@ -18,7 +18,7 @@ base = declarative_base()
 
 
 def init_db():
-    filepath = Path('db_init.sql')
+    filepath = Path('project_db.sql')
     with eng.begin() as conn:
         for query in [x.strip() for x in filepath.read_text().split(';') if x.strip()]:
             conn.execute(text(query))
@@ -26,15 +26,12 @@ def init_db():
     print('All tables were created successfully')
 
 
-@click.command(name='view doctor info')
-def query_1(name):
+def fill_patient():
     with eng.connect() as conn:
         dis = conn.execute(text("""
-        SELECT D.login, D.name, D.degree
-        FROM Doctor D 
-        WHERE D.name = '{name}'
-        """)).mappings()
-    print([{column: dcode[column] for column in dis.keys()} for dcode in dis])
+        INSERT INTO patients (dob, iin, patientID, full_name, blood_group, emergency_contact_number, contact_number, email, home_address, marital_status, registration_date, doctorId, username) VALUES
+        ('2002-04-10', '023303030', '330303003', 'Aaron Paul', '3P', '87773737373', '83338383', 'dsjd@fenfj.com', 'address', 'single', '2020-02-02', 'user1');
+        """))
 
 
 init_db()
