@@ -1,39 +1,35 @@
 create database project;
 
 create table patients (
-    DOB date,
-    IIN bigint,
-    ID bigserial primary key,
-    full_name varchar(255),
-    blood_group varchar(50),
-    emergency_contact_number varchar(50),
-    contact_number varchar(50),
-    email varchar(250),
-    home_address varchar(250),
-    marital_status varchar(250),
-    registration_date date,
-    -- primary key(ID)
+    dob DATE,
+    iin CHAR(12),
+    patientId bigserial PRIMARY KEY,
+    full_name VARCHAR(255),
+    blood_group VARCHAR(50),
+    emergency_contact_number CHAR(12),
+    contact_number CHAR(12),
+    email VARCHAR(250),
+    home_address VARCHAR(250),
+    marital_status VARCHAR(250),
+    registration_date DATE,
+    FOREIGN KEY (doctorId) REFERENCES doctor (doctorId);
+    
 );
 CREATE TABLE doctor (
     dateOfBirth DATE,
-    iin CHAR(12),
-    doctorId PRIMARY KEY,
-    FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
+    iin BIGINT,
+    id PRIMARY KEY,
+    patientId FOREIGN KEY,
     fullName VARCHAR(255),
-    phoneNumber CHAR(12),
+    phoneNumber VARCHAR(50),
     departmentId INT,
-    specializationsId VARCHAR(50),
+    specializationsId INT,
     experience INT,
     category VARCHAR(50),
     price INT,
     scheduleDetails VARCHAR(255),
     education VARCHAR(50),
-    rating VARCHAR(2),
-    address VARCHAR(50)
-);
-
-CREATE TABLE authentification (
-    username VARCHAR(50),
-    password VARCHAR(50),
-    userType VARCHAR(20)
+    rating INT,
+    address VARCHAR(50),
+    email VARCHAR(250)
 );
