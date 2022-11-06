@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <title>DenSYS main page</title>
+</head>
+<body>
+    <center>
+        <h1> 
+            Doctors and patients db
+        </h1>
+
+        <h3>
+            database of DenSYS med center
+        </h3>
+        <hr/>
+        <a href = "{% url 'insertion' %}">Create New Doctor</a>
+        <table border = "1">
+            <tr>
+                <th>Photo</th>
+                <th>dateOfBirth</th>
+                <th>iin</th>
+                <th>doctorid</th>
+                <th>patientID</th>
+                <th>username</th>
+                <th>fullName</th>
+                <th>phoneNumber</th>
+                <th>departmentId</th>
+                <th>specializationsId</th>
+                <th>experience</th>
+                <th>category</th>
+                <th>price</th>
+                <th>scheduleDetails</th>
+                <th>education</th>
+                <th>rating</th>
+                <th>address</th>
+                <th>email</th>
+            </tr>
+
+            {%  for result in data  %}
+                <tr>
+                    <td><img src="https://www.computerhope.com/jargon/g/guest-user.jpg" width="150" ></td>
+                    <td>{{result.dateofbirth}}</td>
+                    <td>{{result.iin}}</td>
+                    <td>{{result.doctorid}}</td>
+                    <td>{{result.patientid}}</td>
+                    <td>{{result.username}}</td>
+                    <td>{{result.fullname}}</td>
+                    <td>{{result.phonenumber}}</td>
+                    <td>{{result.departmentid}}</td>
+                    <td>{{result.specializationsid}}</td>
+                    <td>{{result.experience}}</td>
+                    <td>{{result.category}}</td>
+                    <td>{{result.price}}</td>
+                    <td>{{result.scheduledetails}}</td>
+                    <td>{{result.education}}</td>
+                    <td>{{result.rating}}</td>
+                    <td>{{result.address}}</td>
+                    <td>{{result.email}}</td>
+                    <td><a href = "edit/{{result.doctorid}}">Edit</a></td>
+                    <td><a href = "delete/{{result.doctorid}}" onclick="return confirmation('Are you sure you want to delete this record?')">Delete</a></td>
+                </tr>
+            {%  endfor  %}
+        </table>
+
+
+        <a href = "{% url 'insertionPat' %}">Create New Patient</a>
+        <table border = "1">
+            <tr>
+                <th>dateOfBirth</th>
+                <th>iin</th>
+                <th>patientid</th>
+                <th>full_name</th>
+                <th>blood_group</th>
+                <th>emergency_contact_number</th>
+                <th>contact_number</th>
+                <th>email</th>
+                <th>home_address</th>
+                <th>marital_status</th>
+                <th>registration_date</th>
+                <th>username</th>
+                <th>doctorId</th>               
+            </tr>
+
+            {%  for resultPat in dataPat  %}
+                <tr>
+                    <td>{{resultPat.dob}}</td>
+                    <td>{{resultPat.iin}}</td>
+                    <td>{{resultPat.patientid}}</td>
+                    <td>{{resultPat.full_name}}</td>
+                    <td>{{resultPat.blood_group}}</td>
+                    <td>{{resultPat.emergency_contact_number}}</td>
+                    <td>{{resultPat.contact_number}}</td>
+                    <td>{{resultPat.email}}</td>
+                    <td>{{resultPat.home_address}}</td>
+                    <td>{{resultPat.marital_status}}</td>
+                    <td>{{resultPat.registration_date}}</td>
+                    <td>{{resultPat.username}}</td>
+                    <td>{{resultPat.doctorid}}</td>
+                    <td><a href = "editPat/{{resultPat.patientid}}">Edit</a></td>
+                    <td><a href = "deletePat/{{resultPat.patientid}}" onclick="return confirmation('Are you sure you want to delete this record?')">Delete</a></td>
+                </tr>
+            {%  endfor  %}
+        </table>
+
+
+
+    </center>
+</body>
+
+
+</html>
+

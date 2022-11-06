@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <title>DenSYS main page</title>
+</head>
+<body>
+    <center>
+        <h1> 
+            Edit page
+        </h1>
+
+        <h3>
+            database of DenSYS med center
+        </h3>
+        <hr/>
+        <form method = "POST" action = "/updatePat/{{PatientModel.patientid}}">
+            {%csrf_token%}
+        
+        <table border = "1">
+            <tr>
+                <td>Date Of Birth</td>
+                <td><input type="text" name="dob" value="{{ PatientModel.dob}}"></td>
+            </tr>
+            <tr>
+                <td>IIN</td>
+                <td><input type="text" name="iin" value="{{ PatientModel.iin}}"   ></td>
+            </tr>
+            <tr>
+                <td>Doctor ID</td>
+                <td><input type="text" name="patientid" value="{{ PatientModel.patientid}}"   ></td>
+            </tr>
+            <tr>
+                <td>Patient ID</td>
+                <td><input type="text" name="full_name" value="{{ PatientModel.full_name}}"   ></td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="blood_group" value="{{ PatientModel.blood_group}}"   ></td>
+            </tr>            
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" name="emergency_contact_number" value="{{ PatientModel.emergency_contact_number}}"   ></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" name="contact_number" value="{{ PatientModel.contact_number}}"  ></td>
+            </tr>
+            <tr>
+                <td>Department ID</td>
+                <td><input type="text" name="email" value="{{ PatientModel.email}}"  ></td>
+            </tr>
+            <tr>
+                <td>Specializations ID</td>
+                <td><input type="text" name="home_address" value="{{ PatientModel.home_address}}"  ></td>
+            </tr>
+            <tr>
+                <td>Expirience</td>
+                <td><input type="text" name="marital_status" value="{{ PatientModel.marital_status}}"   ></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td><input type="text" name="registration_date" value="{{ PatientModel.registration_date}}"   ></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><input type="text" name="username" value="{{ PatientModel.username}}"   ></td>
+            </tr>
+            <tr>
+                <td>Schedule details</td>
+                <td><input type="text" name="doctorid" value="{{ PatientModel.doctorid}}"  ></td>
+            </tr>
+                <td><input type="submit" value = "Update record"></td>
+                <td>        
+                    {%  if messages  %}
+                    {%  for mess in messages  %}
+                    <b>{{mess}}</b>    
+            
+                    {%  endfor  %}
+                    {%  endif  %}
+                </td>
+            </tr>
+        </table>
+
+        <a href = "{% url 'showDoct' %}">Home Page</a>
+    </form>
+    </center>
+</body>
+
+
+</html>
+
