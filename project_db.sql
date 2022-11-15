@@ -46,9 +46,9 @@ CREATE TABLE doctor (
 );
 
 CREATE TABLE appointment (
-    id NOT NULL,
-    type NOT NULL,
-    description VARCHAR(75),
+    id INT NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    description VARCHAR(100),
     date DATETIME,
     doctor INT REFERENCES doctor(doctorId) NOT NULL,
     patient INT REFERENCES patients(patientId) NOT NULL,
