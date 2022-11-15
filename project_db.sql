@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS authentification CASCADE;
 DROP TABLE IF EXISTS doctor CASCADE;
 DROP TABLE IF EXISTS patients CASCADE;
+DROP TABLE IF EXISTS appointment CASCADE;
 
 CREATE TABLE authentification (
     username VARCHAR(50) UNIQUE PRIMARY KEY,
@@ -43,3 +44,12 @@ CREATE TABLE doctor (
     address VARCHAR(50) NOT NULL,
     email VARCHAR(250) UNIQUE NOT NULL
 );
+
+CREATE TABLE appointment (
+    id NOT NULL,
+    type NOT NULL,
+    description VARCHAR(75),
+    date DATETIME,
+    doctor INT REFERENCES doctor(doctorId) NOT NULL,
+    patient INT REFERENCES patients(patientId) NOT NULL,
+    CONSTRAINT app_key PRIMARY KEY (date, doctor);
