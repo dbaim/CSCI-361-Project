@@ -49,7 +49,8 @@ CREATE TABLE appointment (
     id INT NOT NULL,
     type VARCHAR(50) NOT NULL,
     description VARCHAR(100),
-    date DATETIME,
+    date DATETIME UNIQUE NOT NULL,
     doctor INT REFERENCES doctor(doctorId) NOT NULL,
     patient INT REFERENCES patients(patientId) NOT NULL,
+    available BOOLEAN NOT NULL,
     CONSTRAINT app_key PRIMARY KEY (date, doctor);
