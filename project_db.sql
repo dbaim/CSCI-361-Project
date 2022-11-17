@@ -53,4 +53,5 @@ CREATE TABLE appointment (
     doctor INT REFERENCES doctor(doctorId) NOT NULL,
     patient INT REFERENCES patients(patientId) NOT NULL,
     available BOOLEAN NOT NULL,
-    CONSTRAINT app_key PRIMARY KEY (date, doctor);
+    CONSTRAINT app_key PRIMARY KEY (date, doctor)
+);
