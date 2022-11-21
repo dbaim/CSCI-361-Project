@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>DenSYS main page</title>
+</head>
+<body>
+    <center>
+        <h1> 
+            Doctors and patients db
+        </h1>
+
+        <h3>
+            database of DenSYS med center
+        </h3>
+        <hr/>
+        <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+            
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type = "text" placeholder = "Enter date of birth" name = "dateofbirth"> </td>
+                </tr>
+                <tr>
+                    <td>IIN</td>
+                    <td><input type = "text" placeholder = "Enter IIN" name = "iin"> </td>
+                </tr>
+                <tr>
+                    <td>Doctor ID</td>
+                    <td><input type = "text" placeholder = "Enter Doctor ID" name = "doctorid" ></td>
+                </tr>
+                <tr>
+                    <td>Patient ID</td>
+                    <td><input type = "text" placeholder = "Enter Patient ID" name = "patientid"> </td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input type = "text" placeholder = "Enter username" name = "username"> </td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td><input type = "text" placeholder = "Enter fullname" name = "fullname"> </td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input type = "text" placeholder = "Enter phone number" name = "phonenumber"> </td>
+                </tr>
+                <tr>
+                    <td>Department ID</td>
+                    <td><input type = "text" placeholder = "Enter department ID" name = "departmentid"> </td>
+                </tr>
+                <tr>
+                    <td>Specialization</td>
+                    <td><input type = "text" placeholder = "Enter specializations ID" name = "specializationsid"> </td>
+                </tr>
+                <tr>
+                    <td>Experience</td>
+                    <td><input type = "text" placeholder = "Enter Experience in years" name = "experience"> </td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td><input type = "text" placeholder = "Enter category" name = "category"> </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type = "text" placeholder = "Enter price" name = "price"> </td>
+                </tr>
+                <tr>
+                    <td>schedule Details</td>
+                    <td><input type = "text" placeholder = "Enter schedule details" name = "scheduledetails"> </td>
+                </tr>
+                <tr>
+                    <td>Education</td>
+                    <td><input type = "text" placeholder = "Enter education" name = "education"> </td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td><input type = "text" placeholder = "Enter Rating" name = "rating"> </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type = "text" placeholder = "Enter address" name = "address"> </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type = "text" placeholder = "Enter email" name = "email"> </td>
+                </tr>
+                <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>        
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>    
+                
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+                
+
+
+
+
+
+            </table>
+            <a href = "{% url 'showDoct' %}">Home Page</a>
+
+    </form>
+    </center>
+</body>
+
+
+</html>
+
