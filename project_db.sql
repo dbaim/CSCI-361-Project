@@ -49,7 +49,7 @@ CREATE TABLE appointment (
     id INT NOT NULL,
     type VARCHAR(50) NOT NULL,
     description VARCHAR(100),
-    date DATETIME UNIQUE NOT NULL,
+    date DATE UNIQUE NOT NULL,
     doctor INT REFERENCES doctor(doctorId) NOT NULL,
     patient INT REFERENCES patients(patientId) NOT NULL,
     available BOOLEAN NOT NULL,
