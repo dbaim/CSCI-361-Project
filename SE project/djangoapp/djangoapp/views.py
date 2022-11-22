@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from djangoapp.models import doctModel
 from djangoapp.models import PatientModel
+from djangoapp.models import AppointmentModel
 from django.contrib import messages
 from djangoapp.forms import doctForms
 from djangoapp.forms import PatientForms
+from djangoapp.forms import AppointmentForms
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -81,7 +83,6 @@ def updateTable(request, id) :
         return render(request, 'edit.html', {"doctModel":UpdateTable})
 
 
-
 def deleteRecord(request, id) :
     deleterecord=doctModel.objects.get(doctorid = id)
     deleterecord.delete()
@@ -90,13 +91,13 @@ def deleteRecord(request, id) :
     return render(request, "delete.html", {"data":showdata, "dataPat":showPat})
     
 
-
 def deletePatRecord(request, id) :
     deleterecord=PatientModel.objects.get(patientid = id)
     deleterecord.delete()
     showPat = PatientModel.objects.all()
     showdata = doctModel.objects.all()
     return render(request, "delete.html", {"dataPat":showPat, "data":showdata})
+
 
 def updatePat(request, id) :
     editobject = PatientModel.objects.get(patientid = id)
@@ -110,7 +111,6 @@ def updateTablePat(request, id) :
         form.save()
         messages.success(request,'Updated successfully')
         return render(request, 'editPat.html', {"PatientModel":UpdateTablePat})
-
 
 
 def login(request):
@@ -144,10 +144,27 @@ def logout(request):
 
 
 def admin_welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'welcome_page.html')
 
 
 def about(request):
-    return HttpResponse("<h4>The hospital management system has a goal of providing a basic functionality for the patients and the hospital staff (doctors, nurses, managers, administration) to automate the processes of making an appointment, maintaining patient history, and prescribing medications and treatment procedures.</h4>")
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+
+def patient_appointment(request):
+    return render(request, 'patient_appointment.html')
+
+
+def appointment_check(request, date):
+    UpdateTable = AppointmentModel.objects.get(date=date)
+    form = AppointmentForms(request.POST, instance=UpdateTable)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Updated successfully')
+        return render(request, 'welcome_page.html', {"users": UpdateTable})
 
 

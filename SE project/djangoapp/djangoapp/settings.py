@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'djangoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
+        'NAME': 'DenSys_Test_DB',
         'USER': 'postgres',
-        'PASSWORD': 'nurbek250202',
+        'PASSWORD': 'Bruh110',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -126,5 +126,9 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

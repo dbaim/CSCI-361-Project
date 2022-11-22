@@ -20,6 +20,7 @@ class doctModel(models.Model) :
     rating = models.IntegerField()
     address = models.CharField(max_length = 50)
     email = models.CharField(max_length = 250)
+
     class Meta:
         db_table = "doctor"
 
@@ -38,5 +39,22 @@ class PatientModel(models.Model):
     registration_date = models.DateField(auto_now_add = False, auto_now = False, blank = False)
     username = models.CharField(max_length = 50)
     doctorid= models.IntegerField()
+
     class Meta:
         db_table = "patients"
+
+
+class AppointmentModel(models.Model):
+    app_id = models.IntegerField()
+    type = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    date = models.DateTimeField(unique=True)
+    doctor = models.ForeignKey(doctModel, db_column='doctorid', on_delete=models.CASCADE)
+    patient = models.OneToOneField(PatientModel, db_column='patientid', on_delete=models.CASCADE)
+    available = models.BooleanField()
+
+    class Meta:
+        db_table = "appointment"
+        constraints = [
+            models.UniqueConstraint(fields=['date', 'doctor'], name='appointment')
+        ]

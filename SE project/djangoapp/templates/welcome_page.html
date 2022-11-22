@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>DenSys</title>
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div class="main">
+		<div class="overlay"></div>
+		<div class="navbar">
+			<ul>
+				<li><a href="{% url 'login' %}">Login</a></li>
+				<li><a href="{% url 'about' %}">About us</a></li>
+				<li><a href="{% url 'contact' %}">Contact us</a></li>
+			</ul>
+		</div>
+		<div class="heading">
+				<h1 class="head">WELCOME TO <span>DenSys</span></h1>
+				<h3 class="sub">This is authorized page for DenSys Hospital Management System. Please, log in.</h3>
+		</div>
+	</div>
+</body>
+</html>

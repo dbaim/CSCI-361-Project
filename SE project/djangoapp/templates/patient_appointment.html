@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/style2.css' %}" rel="stylesheet" type="text/css"/>
+    <title>Welcome</title>
+</head>
+<body>
+<form method = "POST" action = "/appointment_check/{{appointment.date}}" id="ft-form">
+  <fieldset>
+    <label>
+      Type
+      <input type="text" name="type" placeholder = "Enter what type of procedure you need" required>
+    </label>
+      <label>
+        Description
+        <input type="text" name="description" placeholder = "Please specify your problem" required>
+      </label>
+      <label>
+        Date
+        <input type="date" name="date" placeholder = "Please choose date">
+      </label>
+    <label for="doc_name">Please choose doctor</label>
+<select name="doc_name" id="doc_name">
+  <option value="Sain Akhmetov">Sain Akhmetov</option>
+  <option value="Martin Lukac">Martin Lukac</option>
+  <option value="Antonio Cerone" selected>Antonio Cerone</option>
+  <option value="Park">Park</option>
+</select>
+  </fieldset>
+  <div class="btns">
+    <input type="submit" value="Submit request">
+  </div>
+</form>
+</body>
+</html>
