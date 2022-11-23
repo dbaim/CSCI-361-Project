@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-5.15.3-web/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+</head>
+<body>
+    <header class="header">
+        <a href="#" id="logo"><span>Den</span>Sys</a>
+
+        <nav class="navbar">
+        <a href="{% url 'home' %}">home</a>
+        <a href="{% url 'appointment' %}">book an appointment</a>
+
+        </nav>
+
+    <div class="icons">
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        
+    </div>
+
+<a href="#" id="menu_bars" class="fas fa-bars"></a>
+    </header>
+    
+   <div class="container">
+       <div class="main-text">
+           <h2>We have best medical care for you</h2>
+           <button><a href="{% url 'appointment' %}">Book Now</a></button>
+       </div>
+   </div>
+<!-- services we provide -->
+<div class="service-section">
+    <h2 id="ourservices">our services</h2>
+    <div class="inner-service-section">
+        <div class="service-box">
+            <i class="fas fa-user-friends"></i>
+        <h2>Best Doctors</h2>
+        <p>Our hospital provides best doctors for our customers.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-clinic-medical"></i>
+        <h2>Best Equipment</h2>
+        <p>The hospital is equipped with all the latest technology for the correct detection of diseases and their treatment.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-user-plus"></i>
+        <h2>Best Treatment</h2>
+        <p>Our trained doctors will make sure that you will get the best treatment.</p>
+        </div>
+        <div class="service-box">
+            <i class="fas fa-ambulance"></i>
+        <h2>Best Laboratory</h2>
+        <p>Our hospital have its own laboratory that provides high accuracy results.</p>
+        </div>
+    </div>
+</div>
+<!-- services we provide ended -->
+
+<!-- how we works -->
+<div class="work-section">
+    <div class="inner-work-section">
+        <h2>How we work</h2>
+        <p class="text-work">Our doctors are professionals of their field and have numerous certifications.</p>
+            <div class="myimages">
+                <div class="inner-images">
+                    <img src="{% static 'css/images/work1.png' %}" alt="">
+                    <p>We also provide dental care!</p>
+                </div>
+                <div class="inner-images">
+                    <img src="{% static 'css/images/work2.png' %}" alt="">
+                    <p>And have our own physiologist.</p>
+                </div>
+            </div>
+        </div>
+    <div class="inner-work-section scnclass">
+        <h2>We help people. Book an appointment in any case if you have any type of diseases. Our administrators will do the rest.</h2>
+        <p class="creative-text"></p>
+        <a href="{% url 'appointment' %}" class="btn"><span>Book an appointment right now!</span></a>
+    </div>
+</div>
+
+
+<!-- how we works ended -->
+
+
+<!-- our gallery -->
+<div class="gallery">
+    <h2 class="galleryheading">Gallery</h2>
+    <div class="main-gallery">
+        
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery 1.png' %}" alt="">
+    </div>
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery2.png' %}" alt="">
+    </div>
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery3.png' %}" alt="">
+    </div>
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery4.png' %}" alt="">
+    </div>
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery5.png' %}" alt="">
+    </div>
+    <div class="gallery-box">
+        <img src="{% static 'css/images/gallery6.png' %}" alt="">
+    </div>
+</div>
+</div>
+<!-- our gallery ended -->
+
+<!-- our team seaction -->
+<div class="ourteam-section">
+    <h2><span>our</span> team</h2>
+    <div class="ourteam-inner">
+        <div class="section-box">
+            <img src="{% static 'css/images/ourteam1.png' %}" alt="">
+            <h3>Dr.Akhmet</h3>
+            <p>assistant surgeon</p>
+        </div>
+        <div class="section-box">
+            <img src="{% static 'css/images/ourteam2.png' %}" alt="">
+            <h3>Dr.White</h3>
+            <p>assistant surgeon</p>
+        </div>
+        <div class="section-box">
+            <img src="{% static 'css/images/ourteam3.png' %}" alt="">
+            <h3>Dr.Skyler</h3>
+            <p>dentist</p>
+        </div>
+        <div class="section-box">
+            <img src="{% static 'css/images/ourteam4.png' %}" alt="">
+            <h3>Dr.Ricky Doe</h3>
+            <p>physiologist</p>
+        </div>
+
+    </div>
+    
+</div>
+<!-- our team seaction -->
+
+<!-- creating footer -->
+
+<div class="main-footer">
+    <div class="inner-footer">
+        <h2>get in touch</h2>
+        <a href="#">Telegram</a>
+        <a href="#">Email</a>
+    </div>
+
+    <div class="inner-footer">
+        <h2>quick links</h2>
+        <a href="#">Lab Tests</a>
+        <a href="#">Lab working hours</a>
+    </div>
+
+    <div class="inner-footer">
+        <h2>services</h2>
+        <a href="#">Laboratory</a>
+        <a href="#">Doctor Appointment</a>
+    </div>
+</div>
+
+<!-- creating footer -->
+
+</body>
+</html>

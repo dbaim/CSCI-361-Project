@@ -143,7 +143,7 @@ def logout(request):
     return redirect('/')
 
 
-def admin_welcome(request):
+def welcome(request):
     return render(request, 'welcome_page.html')
 
 
@@ -157,6 +157,10 @@ def contact(request):
 
 def patient_appointment(request):
     return render(request, 'patient_appointment.html')
+
+
+def home_page(request):
+    return render(request, 'home_page.html')
 
 
 def appointment_check(request, date):
