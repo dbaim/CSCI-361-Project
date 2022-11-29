@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <title>DenSYS main page</title>
+</head>
+<body>
+    <center>
+        <h1> 
+            Doctors and patients db
+        </h1>
+
+        <h3>
+            database of DenSYS med center
+        </h3>
+        <hr/>
+        <form method = "POST">
+            {%  csrf_token  %}
+        <table border = "1">
+            
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type = "text" placeholder = "Enter date of birth" name = "dob"> </td>
+                </tr>
+                <tr>
+                    <td>IIN</td>
+                    <td><input type = "text" placeholder = "Enter IIN" name = "iin"> </td>
+                </tr>
+                <tr>
+                    <td>Patient ID</td>
+                    <td><input type = "text" placeholder = "Enter Patient ID" name = "patientid" ></td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td><input type = "text" placeholder = "Enter Full Name" name = "full_name"> </td>
+                </tr>
+                <tr>
+                    <td>Blood Group</td>
+                    <td><input type = "text" placeholder = "Enter Blood Group" name = "blood_group"> </td>
+                </tr>
+                <tr>
+                    <td>Emergency Contact Number</td>
+                    <td><input type = "text" placeholder = "Enter Emergency Contact Number" name = "emergency_contact_number"> </td>
+                </tr>
+                <tr>
+                    <td>Contact Number</td>
+                    <td><input type = "text" placeholder = "Enter Contact Number" name = "contact_number"> </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type = "text" placeholder = "Enter Email" name = "email"> </td>
+                </tr>
+                <tr>
+                    <td>Home Address</td>
+                    <td><input type = "text" placeholder = "Enter Home Address" name = "home_address"> </td>
+                </tr>
+                <tr>
+                    <td>Marital Status</td>
+                    <td><input type = "text" placeholder = "Enter Marital Status" name = "marital_status"> </td>
+                </tr>
+                <tr>
+                    <td>Registration Date</td>
+                    <td><input type = "text" placeholder = "Enter Registration Date" name = "registration_date"> </td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input type = "text" placeholder = "Enter Username" name = "username"> </td>
+                </tr>
+                <tr>
+                    <td>Doctor ID</td>
+                    <td><input type = "text" placeholder = "Enter schedule Doctor ID" name = "doctorid"> </td>
+                </tr>
+
+                <tr>
+                    <td><input type = "submit" value = "Insert"/>
+                    <td>        
+                        {%  if messages  %}
+                        {%  for mess in messages  %}
+                        <b>{{mess}}</b>    
+                
+                        {%  endfor  %}
+                        {%  endif  %}
+                    </td>
+                </tr>
+                
+
+
+
+
+
+            </table>
+            <a href = "{% url 'showDoct' %}">Home Page</a>
+
+    </form>
+    </center>
+</body>
+
+
+</html>
+
